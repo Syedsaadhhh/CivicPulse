@@ -1,0 +1,76 @@
+/* ---------------------------------------------------------------------------
+ * Base layer: document defaults, typography inheritance, focus, a11y.
+ * Keep component styling in components — this file only sets the ground rules.
+ * ------------------------------------------------------------------------- */
+
+@layer base {
+  html {
+    background-color: var(--color-paper);
+    scroll-behavior: smooth;
+    /* Anchored sections must clear the sticky navbar. */
+    scroll-padding-top: 6.5rem;
+    -webkit-tap-highlight-color: transparent;
+    text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100svh;
+    background-color: var(--color-paper);
+    color: var(--color-moss);
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height, 1.65);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Headings are editorial by default; sizes come from the token ramp. */
+  h1,
+  h2,
+  h3,
+  h4 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+    color: var(--color-moss);
+    text-wrap: balance;
+  }
+
+  p {
+    margin: 0;
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background-color: var(--color-sunshine);
+    color: var(--color-moss);
+  }
+
+  /* One visible focus treatment for the whole product: forest hairline that
+     sits outside the control so it stays legible on filled buttons too. */
+  :focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
+  }
+
+  /* Placeholder region labels are visually hidden but read by screen readers. */
+  [hidden] {
+    display: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

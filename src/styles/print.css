@@ -1,0 +1,42 @@
+/* ---------------------------------------------------------------------------
+ * Print: the passport sheet is the only thing worth having on paper, so the
+ * rest of the page is taken out. Everything the visitor presses lives behind
+ * `data-print="hide"`; the other sections are direct children of <main>.
+ * ------------------------------------------------------------------------- */
+
+@media print {
+  @page {
+    margin: 14mm;
+  }
+
+  html,
+  body {
+    background: #fff;
+  }
+
+  header,
+  footer,
+  main > section:not(#passport),
+  [data-print='hide'] {
+    display: none !important;
+  }
+
+  #passport {
+    border: 0;
+  }
+
+  #passport .py-section {
+    padding-block: 0;
+  }
+
+  #passport [data-passport-sheet] {
+    border-color: var(--color-line-strong);
+    box-shadow: none;
+  }
+
+  /* Keep the sage and sunshine fills the sheet is drawn with. */
+  #passport [data-passport-sheet] * {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+}

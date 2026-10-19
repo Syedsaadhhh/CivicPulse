@@ -1,0 +1,15 @@
+/* ---------------------------------------------------------------------------
+ * Component-grade visual effects that are too specific for a token but too
+ * reusable to inline. Registered with @utility so they behave like any other
+ * Tailwind class and can take variants (e.g. `lg:bloom-wash-strong`).
+ * ------------------------------------------------------------------------- */
+
+/* Warm atmospheric wash for hero-scale regions: sage light at the leading
+ * edge, sunshine at the trailing edge. Stays under 50% opacity so paper still
+ * reads as paper. */
+@utility bloom-wash {
+  background-image:
+    radial-gradient(58% 44% at 14% 4%, var(--color-sage) 0%, transparent 68%),
+    radial-gradient(44% 38% at 92% 6%, var(--color-sunshine) 0%, transparent 70%);
+  opacity: 0.45;
+}

@@ -4,6 +4,8 @@
 
 A participatory-budgeting frontend prototype built for Hyperbloom October 2026. Explore neighbourhood proposals, compare illustrated street transformations, allocate a fixed budget of 100 Civic Tokens, and keep a Community Impact Passport of your choices.
 
+Live demo: https://hyperbloom-civicpulse.vercel.app/
+
 ## Try the flow
 
 1. Choose one of four fictional neighbourhoods using search or the illustrated map.
